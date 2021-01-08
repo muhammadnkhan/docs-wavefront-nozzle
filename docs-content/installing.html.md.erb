@@ -65,9 +65,9 @@ This adds the tile to your staging area.
   1. **Custom Proxy Configuration**: Choose <code>Default</code> for the default proxy settings.
      Optionally, you can override the proxy configuration and preprocessor rules under <code>Custom</code> settings.
      ![custom proxy configuration](images/custom proxy configuration.png)
-     1. **Config**: Set custom proxy configuration  
-     1. **Pre-processor Rules**: Define pre-processor rules in proxy for data filtering and altering
-     1. **Logs Ingestion Config**: Set custom log ingestion configuration in proxy
+      1. **Config**: Set custom proxy configuration  
+      1. **Pre-processor Rules**: Define pre-processor rules in proxy for data filtering and altering
+      1. **Logs Ingestion Config**: Set custom log ingestion configuration in proxy
 1. Click **Save**.
 
 1. Click **Wavefront Firehose Nozzle Config**.
@@ -82,7 +82,18 @@ This adds the tile to your staging area.
   1. **Skip SSL Verification**: Check to skip SSL validation. This is useful in non-production environments.
   1. **Advanced Nozzle Options**: Choose <code>No</code> for the default nozzle settings.
      Optionally, choose <code>Yes</code> to configure advanced nozzle options such as filters, v1 API mode, number of nozzle instances etc.
-
+     ![advanced nozzle options](images/advanced nozzle options.png)
+      1. **Metrics White List**: Comma separated list of glob patterns. Only metrics with names matching the whitelist are reported.
+      1. **Metrics Black List**: Comma separated list of glob patterns. Metrics with names matching the blacklist are dropped.
+      1. **Number of Nozzle App Instances **: Number of nozzle app instances (Default: 1) 
+      1. **Number of Nozzle Workers **: Number of nozzle workers (Default: 2)
+      1. **Size of Nozzle ingress Queue**: Size of Nozzle ingress Queue (Default: 100000
+      1. **Number of Nozzle App Instances**: Customize number of nozzle app instances (Default: 1) 
+      1. **Prefix of all metrics**: All platform metrics are prefixed with pcf by default. Out-of-the-box integration dashboards and integrations metrics tracking are dependent on the default prefix.
+      1. **Custom Proxy Address**: 
+      1. **Custom Proxy Port**: 
+      1. **Use Legacy Mode**: Flag to use a deprecated PCF API to gather metrics (will ignore 'CF API log stream url' option)
+      1. **Events/Metrics to Subscribe (Only Legacy Mode)**: If legacy mode is selected then user have option to subscribe to a particular metrics/events type i.e. (Value Metrics, Counter Events, Container Metrics)
 1. Click **Save**.
 
 1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install VMware Tanzu Observability by Wavefront Nozzle tile.
